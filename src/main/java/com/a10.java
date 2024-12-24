@@ -5,7 +5,6 @@ import java.util.Map;
 
 public class a10 {
 
-
     public static boolean darCambio()(int importeDevolver, Map<Integer, Integer>, mapCanti, Map<Integer,Integer> mapSol ){
         
         boolean objetivo=false;
@@ -78,10 +77,6 @@ public class a10 {
 
     }
 
-
-
-    
-
 public static boolean llenarPendriveVueltaAtras(int capacidadMax, Map<String,Integer> espacioProgramas, Lista<String> pendrive ){
 
 
@@ -112,28 +107,25 @@ public static boolean llenarPendriveVueltaAtras(int capacidadMax, Map<String,Int
 
 }
 
+    public static boolean subconjunto(int[] valores, int[] solucion, int resultado, int indice) {
 
-public static boolean subconjunto(int [] valores, int[] solucion, int resultado, int indice){
-
-    boolean objetivo=false;
-    while(indice < valores.length && resultado > 0 && !objetivo){
-        solucion[indice]=1;
-        resultado -=valores[indice];
-        if(resultado == 0){
-            objetivo=true;
-        }else{
-            objetivo = subconjunto(valores, solucion, resultado, indice);
-            if(!objetivo){
-                resultado += valores[indice];
-                solucion[indice] = 0;
+        boolean objetivo = false;
+        while (indice < valores.length && resultado > 0 && !objetivo) {
+            solucion[indice] = 1;
+            resultado -= valores[indice];
+            if (resultado == 0) {
+                objetivo = true;
+            } else {
+                objetivo = subconjunto(valores, solucion, resultado, indice);
+                if (!objetivo) {
+                    resultado += valores[indice];
+                    solucion[indice] = 0;
+                }
             }
+            indice++;
         }
-        indice++;
+        return objetivo;
+
     }
-    return objetivo;
 
-} 
-
-
-    
 }
